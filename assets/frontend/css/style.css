@@ -1,0 +1,84 @@
+.select2-container {
+  width: 100% !important;
+}
+
+#logo{
+  width: 180px;
+}
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}
+#about_image{
+    background: url("../img/woman-3083377_1920.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+.back_img{
+  background: 
+    /* top, transparent red, faked with gradient */ 
+    linear-gradient(
+      rgba(0, 0, 0, 0.45), 
+      rgba(0, 0, 0, 0.45)
+    ),
+    /* bottom, image */
+    url(../img/banner_book.jpg);
+    /* background-image: url(../img/banner_book.jpg); */
+    background-attachment:local;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.hel{
+  background-image: url(../img/meeting-1245776_1920.jpg);
+  background-attachment:local;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: auto;
+  width: 100%;
+}
+.oel{
+  background-image: url(../img/office-1081807_1920.jpg);
+ background-attachment:local;
+ background-size: cover;
+ background-repeat: no-repeat;
+}
+.bel{
+  background-image: url(../img/woman-3083377_1920.jpg);
+ background-attachment:local;
+ background-size: cover;
+ background-repeat: no-repeat;
+}
+
+
+.text_div{
+  min-height: 170px;
+  max-height: 170px;
+}
+
+@media screen and (max-width: 1202px) {
+  .text_div{
+    min-height: 256px;
+    max-height: 256px;
+  }
+}
+@media screen and (max-width: 990px) {
+  .text_div{
+    min-height: 170px;
+    max-height: 170px;
+  }
+  .order-first img{
+    /* width: 106%;
+    margin-left: -15px; */
+  }
+}
+@media screen and (max-width: 767px) {
+  .card-group .row .col-12 img {
+      width: 100%;
+      margin: 0; }
+  .card-group .row .col-12 {
+      padding: 0 !important; }
+      .card-group .row .card.col-12 {
+        padding: 0 20px !important;
+    }
+  }

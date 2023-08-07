@@ -1,0 +1,201 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+/*Powered By: Manaknightdigital Inc. https://manaknightdigital.com/ Year: 2021*/
+/**
+ * View Dispute View Model
+ *
+ * @copyright 2019 Manaknightdigital Inc.
+ * @link https://manaknightdigital.com
+ * @license Proprietary Software licensing
+ * @author Ryan Wong
+ */
+class Dispute_member_view_view_model
+{
+    protected $_entity;
+    protected $_model;
+	protected $_id;
+	protected $_order_id;
+	protected $_user_id;
+	protected $_reason;
+	protected $_explanation;
+	protected $_stripe_charge_id;
+	protected $_stripe_dispute_id;
+	protected $_status;
+
+
+    public function __construct($entity)
+    {
+        $this->_entity = $entity;
+    }
+
+    public function get_entity ()
+    {
+        return $this->_entity;
+    }
+
+    /**
+     * set_heading function
+     *
+     * @param string $heading
+     * @return void
+     */
+    public function set_heading ($heading)
+    {
+        $this->_heading = $heading;
+    }
+
+    /**
+     * get_heading function
+     *
+     * @return string
+     */
+    public function get_heading ()
+    {
+        return $this->_heading;
+    }
+
+    public function set_model ($model)
+    {
+        $this->_model = $model;
+		$this->_id = $model->id;
+		$this->_order_id = $model->order_id;
+		$this->_user_id = $model->user_id;
+		$this->_reason = $model->reason;
+		$this->_explanation = $model->explanation;
+		$this->_stripe_charge_id = $model->stripe_charge_id;
+		$this->_stripe_dispute_id = $model->stripe_dispute_id;
+		$this->_status = $model->status;
+
+    }
+
+    public function timeago($date)
+    {
+        $timestamp = strtotime($date);
+
+        $strTime = array('second', 'minute', 'hour', 'day', 'month', 'year');
+        $length = array('60', '60', '24', '30', '12', '10');
+
+        $currentTime = time();
+        if($currentTime >= $timestamp)
+        {
+             $diff  = time() - $timestamp;
+
+             for($i = 0; $diff >= $length[$i] && $i < count($length)-1; $i++)
+             {
+                $diff = $diff / $length[$i];
+             }
+
+             $diff = round($diff);
+             return $diff . ' ' . $strTime[$i] . '(s) ago ';
+        }
+    }
+
+    public function time_default_mapping ()
+    {
+        $results = [];
+        for ($i=0; $i < 24; $i++)
+        {
+            for ($j=0; $j < 60; $j++)
+            {
+                $hour = ($i < 10) ? '0' . $i : $i;
+                $min = ($j < 10) ? '0' . $j : $j;
+                $results[($i * 60) + $j] = "$hour:$min";
+            }
+        }
+        return $results;
+    }
+
+	public function get_id ()
+	{
+		return $this->_id;
+	}
+
+	public function set_id ($id)
+	{
+		$this->_id = $id;
+	}
+
+	public function get_order_id ()
+	{
+		return $this->_order_id;
+	}
+
+	public function set_order_id ($order_id)
+	{
+		$this->_order_id = $order_id;
+	}
+
+	public function get_user_id ()
+	{
+		return $this->_user_id;
+	}
+
+	public function set_user_id ($user_id)
+	{
+		$this->_user_id = $user_id;
+	}
+
+	public function get_reason ()
+	{
+		return $this->_reason;
+	}
+
+	public function set_reason ($reason)
+	{
+		$this->_reason = $reason;
+	}
+
+	public function get_explanation ()
+	{
+		return $this->_explanation;
+	}
+
+	public function set_explanation ($explanation)
+	{
+		$this->_explanation = $explanation;
+	}
+
+	public function get_stripe_charge_id ()
+	{
+		return $this->_stripe_charge_id;
+	}
+
+	public function set_stripe_charge_id ($stripe_charge_id)
+	{
+		$this->_stripe_charge_id = $stripe_charge_id;
+	}
+
+	public function get_stripe_dispute_id ()
+	{
+		return $this->_stripe_dispute_id;
+	}
+
+	public function set_stripe_dispute_id ($stripe_dispute_id)
+	{
+		$this->_stripe_dispute_id = $stripe_dispute_id;
+	}
+
+	public function get_status ()
+	{
+		return $this->_status;
+	}
+
+	public function set_status ($status)
+	{
+		$this->_status = $status;
+	}
+
+	public function to_json ()
+	{
+		return [
+		'id' => $this->get_id(),
+		'order_id' => $this->get_order_id(),
+		'user_id' => $this->get_user_id(),
+		'reason' => $this->get_reason(),
+		'explanation' => $this->get_explanation(),
+		'stripe_charge_id' => $this->get_stripe_charge_id(),
+		'stripe_dispute_id' => $this->get_stripe_dispute_id(),
+		'status' => $this->get_status(),
+		];
+	}
+
+}
