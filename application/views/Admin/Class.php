@@ -134,7 +134,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $format_mode = '&layout_clean_mode=1';
         }
         foreach ($view_model->get_column() as $key => $data) {
-            $data_field = $field_column[$key];
+            $data_field = $field_column[$key] ?? null;
             if (strlen($order_by) < 1 || $data_field == '')
             {
                 echo "<th scope='col' class='paragraphText text-center'>{$data}</th>";
