@@ -140,12 +140,12 @@ class Admin_operation_model extends Manaknight_Model
             'total'=>0
         ];
 
-        $result = $this->db->select('count(*) as count')->from('phinxlog')->where('breakpoint',0)->get()->row_array();
+        $result = $this->db->select('count(*) as count')->from('credential')->get()->row_array();
         if($result){
             $data['total'] = $result['count'];
         }
 
-        $result = $this->db->select('count(id) as count')->from('credential')->where('role_id',2)->where('MONTH(created_at) =',date('n'))
+        $result = $this->db->select('count(id) as count')->from('credential')->where('MONTH(created_at) =',date('n'))
         ->where('YEAR(created_at)',date('Y'))->get()->row_array();
         if($result){
             $data['month'] = $result['count'];

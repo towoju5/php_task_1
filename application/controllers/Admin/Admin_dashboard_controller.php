@@ -12,6 +12,7 @@ include_once 'Admin_controller.php';
 class Admin_dashboard_controller extends Admin_controller
 {
     public $_page_name = 'Dashboard';
+    public $Admin_operation_model;
 
     public function __construct()
     {
