@@ -18,8 +18,8 @@ class Review_admin_list_paginate_view_model
     protected $_per_page = 10;
     protected $_page;
     protected $_num_links = 5;
-    protected $_column = ['Action','Id','Order Id','User','Comment','Rating','Status'];
-    protected $_field_column = ['','id','order_id','user_id','comment','rating','status'];
+    protected $_column = ['Action','Id','Order Id','User','Comment', 'Private  Review','Rating','Status'];
+    protected $_field_column = ['','id','order_id','user_id','comment', 'private_review','rating','status'];
     protected $_list = [];
     protected $_links = '';
     protected $_sort_base_url = '';
@@ -419,6 +419,18 @@ class Review_admin_list_paginate_view_model
 
 	public $_user_id = NULL;
 
+	public function get_private_review ()
+	{
+		return $this->_comment;
+	}
+
+	public function set_private_review ($comment)
+	{
+		$this->_comment = $comment;
+	}
+
+	public $_private_review = NULL;
+
 	public function get_comment ()
 	{
 		return $this->_comment;
@@ -475,6 +487,7 @@ class Review_admin_list_paginate_view_model
 			$clean_list_entry['order_id'] = $list[$key]->order_id;
 			$clean_list_entry['user_id'] = $list[$key]->user_id;
 			$clean_list_entry['comment'] = $list[$key]->comment;
+			$clean_list_entry['private_review'] = $list[$key]->private_review;
 			$clean_list_entry['rating'] = $list[$key]->rating;
 			$clean_list_entry['status'] = $list[$key]->status;
 			$clean_list[] = $clean_list_entry;
@@ -502,6 +515,7 @@ class Review_admin_list_paginate_view_model
 			$clean_list_entry['order_id'] = $list[$key]->order_id;
 			$clean_list_entry['user_id'] = $list[$key]->user_id;
 			$clean_list_entry['comment'] = $list[$key]->comment;
+			$clean_list_entry['private_review'] = $list[$key]->private_review;
 			$clean_list_entry['rating'] = $list[$key]->rating;
 			$clean_list_entry['status'] = $list[$key]->status;
 			$clean_list[] = $clean_list_entry;

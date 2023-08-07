@@ -21,16 +21,17 @@ class Review_model extends Manaknight_Model
 		'status',
 		'comment',
 		'rating',
+		'private_review'
 		
     ];
 	protected $_label_fields = [
-    'Id','User ID','Inventory ID','order_id','Status','Comment','Rating',
+    	'Id','User ID','Inventory ID','order_id','Status','Comment','Rating', 'Private Review'
     ];
 	protected $_use_timestamps = TRUE;
 	protected $_created_field = 'created_at';
 	protected $_updated_field = 'updated_at';
 	protected $_validation_rules = [
-    ['id', 'Id', ''],
+    	['id', 'Id', ''],
 		['user_id', 'User ID', 'required|integer'],
 		['inventory_id', 'Inventory ID', 'required|integer'],
 		['order_id', 'order_id', 'integer'],
@@ -40,7 +41,7 @@ class Review_model extends Manaknight_Model
 		
     ];
 	protected $_validation_edit_rules = [
-    ['id', 'Id', ''],
+    	['id', 'Id', ''],
 		['user_id', 'User ID', 'required|integer'],
 		['inventory_id', 'Inventory ID', 'required|integer'],
 		['order_id', 'order_id', 'integer'],
