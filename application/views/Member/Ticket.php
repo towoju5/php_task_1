@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="card" id="ticket_filter_listing">
             <div class="card-body">
               <h5 class="primaryHeading2 text-md-left">
-                    Tickets Searchzzz
+                    Tickets Search
               </h5>
                 <?= form_open('/member/ticket/0', ['method' => 'get']) ?>
                     <div class="row">
@@ -145,7 +145,7 @@ Tickets
             $format_mode = '&layout_clean_mode=1';
         }
         foreach ($view_model->get_column() as $key => $data) {
-            $data_field = $field_column[$key];
+            $data_field = $field_column[$key] ??  null;
             if (strlen($order_by) < 1 || $data_field == '')
             {
                 echo "<th scope='col' class='paragraphText text-center'>{$data}</th>";
@@ -188,9 +188,9 @@ Tickets
         </tbody>
     </table>
 
-    <small><?php echo $view_model->get_total_rows1();?> results found</small>
+    <small><?php echo $view_model->get_total_rows();?> results found</small>
     <span class="pagination_custom">
-        <?php echo $view_model->get_links2(); ?>
+        <?php echo $view_model->get_links(); ?>
     </span>
     </div>
   </section>
