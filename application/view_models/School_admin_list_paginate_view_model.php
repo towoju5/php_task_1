@@ -421,7 +421,7 @@ class School_admin_list_paginate_view_model
 
 	public function status_mapping ()
 	{
-		return $this->_entity->status_mapping1();
+		return $this->_entity->status_mapping();
 
 	}
 
