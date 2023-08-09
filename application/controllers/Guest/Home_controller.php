@@ -256,6 +256,9 @@ class Home_controller extends Manaknight_controller
             $this->_data['textbook_data'] = $this->db->select('distinct(isbn)')->from('inventory')->where('isbn', $this->input->get('isbn', true))->get()->result_array();
         }
 
+        $this->_data['years']  = $this->db->select('*')->from('inventory')->order_by('year',  'asc')->group_by('year')->get()->result();
+        // var_dump($this->_data['years']); exit;
+
         $search_term = $this->input->get('search_term', true);
         $school_id = $this->input->get('school_id', true);
         $professor_id = $this->input->get('professor_id', true);

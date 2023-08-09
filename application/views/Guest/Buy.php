@@ -204,6 +204,9 @@
                             <option selected>Sort By Year</option>
                             <option value="asc">Asc</option>
                             <option value="desc">Desc</option>
+                            <?php foreach ( $this->_data['years']  as $key => $year): ?>
+                                <option value="<?= $year->year ?>"><?= $year->year ?></option>
+                            <?php endforeach ?>
                         </select>
 
                     </div>
